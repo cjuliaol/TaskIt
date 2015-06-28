@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class TaskActivity extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class TaskActivity extends AppCompatActivity {
         mTask = (Task) getIntent().getSerializableExtra(EXTRA);
 
         mCal = Calendar.getInstance();
-        mCal.setTime(mTask.getDueDate());
+
 
         Log.d(TAG, mTask.getName());
 
@@ -46,8 +47,10 @@ public class TaskActivity extends AppCompatActivity {
         mTaskNameInput.setText(mTask.getName());
 
         if (mTask.getDueDate() == null) {
+            mCal.setTime(new Date());
             mDateButton.setText(getResources().getString(R.string.nodate));
         } else {
+            mCal.setTime(mTask.getDueDate());
             updateDateButton();
         }
 
