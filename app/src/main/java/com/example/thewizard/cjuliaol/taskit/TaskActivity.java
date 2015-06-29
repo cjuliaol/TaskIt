@@ -25,7 +25,8 @@ public class TaskActivity extends AppCompatActivity {
     private Task mTask;
     private Button mDateButton;
     private EditText mTaskNameInput;
-    private  CheckBox mDoneBox;
+    private CheckBox mDoneBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +34,11 @@ public class TaskActivity extends AppCompatActivity {
 
         mTask = (Task) getIntent().getSerializableExtra(EXTRA);
 
+        if (mTask == null) {
+            mTask = new Task();
+        }
+
         mCal = Calendar.getInstance();
-
-
-        Log.d(TAG, mTask.getName());
 
         // Fetching UI elements
         mTaskNameInput = (EditText) findViewById(R.id.task_name);
@@ -88,8 +90,8 @@ public class TaskActivity extends AppCompatActivity {
 
                 // Sending back the Task
                 Intent intent = new Intent();
-                intent.putExtra(EXTRA,mTask);
-                setResult(RESULT_OK,intent);
+                intent.putExtra(EXTRA, mTask);
+                setResult(RESULT_OK, intent);
                 finish(); // Return to the before Activity
             }
         });
@@ -102,6 +104,7 @@ public class TaskActivity extends AppCompatActivity {
         DateFormat df = DateFormat.getDateInstance();
         mDateButton.setText(df.format(mCal.getTime()));
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

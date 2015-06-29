@@ -6,4 +6,6 @@
     <string name="done"> Done:</string>
     <string name="save">Save</string>
     <string name="nodate">No Date</string>
+    <string name="add_task">Add Task</string>
+    <string name="help">Help</string>
 </resources>

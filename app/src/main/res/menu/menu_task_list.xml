@@ -1,6 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".TaskListActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".TaskListActivity">
+
+
+    <item
+        android:id="@+id/add_task"
+        android:icon="@android:drawable/ic_menu_add"
+        android:orderInCategory="101"
+        android:title="@string/add_task"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/help"
+        android:orderInCategory="102"
+        android:title="@string/help"
+        app:showAsAction="ifRoom"/>
+
 </menu>
